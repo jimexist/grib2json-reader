@@ -13,7 +13,10 @@ module.exports = {
   devtool: 'source-map',
   module: {
     loaders: [
-      { test: /\.ts(x?)$/, loader: 'babel-loader!ts-loader' }
+      {
+        test: /\.ts(x?)$/,
+        loader: 'babel-loader!ts-loader'
+      }
     ]
   }
 }
