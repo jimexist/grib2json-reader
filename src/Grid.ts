@@ -1,8 +1,8 @@
 /// <reference path="Grib2Data.ts" />
 /// <reference path="Interpolate.ts" />
 
-import { getDataSource, Grib2Data, Header } from './Grib2Data.ts';
-import { bilinearInterpolateVector, InterpolateFunc } from './Interpolate.ts';
+import { getDataSource, Grib2Data, Header } from './Grib2Data';
+import { bilinearInterpolateVector, InterpolateFunc } from './Interpolate';
 
 export type Grid<T> = T[][];
 export type Field<T> = (i: number, j: number) => T;

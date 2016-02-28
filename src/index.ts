@@ -2,5 +2,5 @@
 /// <reference path="Grid.ts" />
 /// <reference path="Interpolate.ts" />
 
-import { build } from './Grid.ts';
+import { build } from './Grid';
 export default build;
