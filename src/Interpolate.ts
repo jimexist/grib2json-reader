@@ -1,4 +1,4 @@
-interface InterpolateParam<T extends number | number[]> {
+export interface InterpolateParam<T extends number | number[]> {
     x: number;
     y: number;
     g00: T;
@@ -7,17 +7,17 @@ interface InterpolateParam<T extends number | number[]> {
     g11: T;
 }
 
-interface InterpolateFunc<T extends number | number[]> {
+export interface InterpolateFunc<T extends number | number[]> {
     (param: InterpolateParam<T>): T
 }
 
-function bilinearInterpolateScalar(p: InterpolateParam<number>): number {
+export function bilinearInterpolateScalar(p: InterpolateParam<number>): number {
     const rx = (1 - p.x);
     const ry = (1 - p.y);
     return p.g00 * rx * ry + p.g10 * p.x * ry + p.g01 * rx * p.y + p.g11 * p.x * p.y;
 }
 
-function bilinearInterpolateVector(p: InterpolateParam<number[]>): number[] {
+export function bilinearInterpolateVector(p: InterpolateParam<number[]>): number[] {
     const rx = (1 - p.x);
     const ry = (1 - p.y);
     const a = rx * ry;

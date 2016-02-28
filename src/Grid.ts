@@ -1,13 +1,13 @@
 /// <reference path="Grib2Data.ts" />
 /// <reference path="Interpolate.ts" />
 
-import { dataSource } from './Grid2Data.ts';
-import { bilinearInterpolateVector } from './Interpolate.ts';
+import { getDataSource, Grib2Data, Header } from './Grib2Data.ts';
+import { bilinearInterpolateVector, InterpolateFunc } from './Interpolate.ts';
 
-type Grid<T> = T[][]
-type Field<T> = (i: number, j: number) => T
+export type Grid<T> = T[][];
+export type Field<T> = (i: number, j: number) => T;
 
-interface GridResult<T> {
+export interface GridResult<T> {
     grid: Grid<T>;
     field: Field<T>;
     date: Date;
@@ -76,11 +76,11 @@ function makeGrid<T extends number | number[]>(accessor: (idx: number) => T, ni:
     return grid;
 }
 
-function build(data: Grib2Data,
+export function build(data: Grib2Data,
     interpolateFunc: InterpolateFunc<number[]> = bilinearInterpolateVector): GridResult<number[]> {
     const header1 = data.segments[0].header;
     const accessor = (idx: number) => data.segments.map(segment => segment.data[idx]);
-    const dataSource = dataSource(header1);
+    const dataSource = getDataSource(header1);
     const date = new Date(header1.refTime);
     date.setHours(date.getHours() + header1.forecastTime);
     const isContinuous = Math.floor(header1.nx * header1.dx) >= 360;

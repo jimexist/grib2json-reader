@@ -1,4 +1,4 @@
-interface Bounds {
+export interface Bounds {
     nx: number;
     ny: number;
     lo1: number;
@@ -9,7 +9,7 @@ interface Bounds {
     dy: number;
 }
 
-function dataSource(header: Header): string {
+export function getDataSource(header: Header): string {
     switch (header.center || header.centerName) {
         case -3:
             return "OSCAR / Earth & Space Research";
@@ -21,7 +21,7 @@ function dataSource(header: Header): string {
     }
 }
 
-interface Header extends Bounds {
+export interface Header extends Bounds {
     refTime: string;
     parameterCategory: number;
     parameterNumber: number;
@@ -33,11 +33,11 @@ interface Header extends Bounds {
     centerName: string;
 }
 
-interface Grib2Segment {
+export interface Grib2Segment {
     header: Header;
     data: [number];
 }
 
-interface Grib2Data {
+export interface Grib2Data {
     segments: [Grib2Segment]
 }
