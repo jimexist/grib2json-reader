@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "module": "es6",
+        "target": "es6",
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "outDir": "lib",
+        "rootDir": "src",
+        "sourceMap": true,
+        "declaration": true
+    },
+    "files": [
+        "./src/index.ts",
+        "./src/Grib2Data.ts",
+        "./src/Grid.ts",
+        "./src/Interpolate.ts"
+    ]
+}
