@@ -38,6 +38,5 @@ export interface Grib2Segment {
     data: [number];
 }
 
-export interface Grib2Data {
-    segments: [Grib2Segment]
-}
+export type Grib2Data = Grib2Segment[];
+

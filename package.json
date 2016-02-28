@@ -1,6 +1,6 @@
 {
   "name": "grib2json-reader",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "grid2 json file reader",
   "main": "lib/index.js",
   "scripts": {

@@ -78,8 +78,8 @@ function makeGrid<T extends number | number[]>(accessor: (idx: number) => T, ni:
 
 export function build(data: Grib2Data,
     interpolateFunc: InterpolateFunc<number[]> = bilinearInterpolateVector): GridResult<number[]> {
-    const header1 = data.segments[0].header;
-    const accessor = (idx: number) => data.segments.map(segment => segment.data[idx]);
+    const header1 = data[0].header;
+    const accessor = (idx: number) => data.map(segment => segment.data[idx]);
     const dataSource = getDataSource(header1);
     const date = new Date(header1.refTime);
     date.setHours(date.getHours() + header1.forecastTime);
