@@ -10,6 +10,7 @@ module.exports = {
     filename: path.resolve(__dirname, 'lib/[name].js')  
   },
   target: 'node',
+  devtool: 'source-map',
   module: {
     loaders: [
       { test: /\.ts(x?)$/, loader: 'babel-loader!ts-loader' }
